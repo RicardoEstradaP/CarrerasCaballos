@@ -43,6 +43,15 @@ st.markdown("<h2 style='font-size: 20px;'>Ingrese la cantidad de simulaciones</h
 # Permitir al usuario ingresar la cantidad de simulaciones
 num_simulaciones = st.number_input("", min_value=1, value=100, step=1, key="num_simulaciones")
 
+# Función para simular una carrera
+def simular_carrera(caballos_modificados):
+    velocidades = {}
+    for caballo, datos in caballos_modificados.items():
+        # Simular la velocidad con una distribución normal (media, desviación estándar)
+        velocidades[caballo] = np.random.normal(datos["media"], datos["desviacion"])
+    # Ganador es el caballo con la mayor velocidad
+    return max(velocidades, key=velocidades.get)
+
 # Botón para ejecutar la simulación
 if st.button(f"Realizar Simulación de {num_simulaciones} Carreras"):
     ganadores = {caballo: 0 for caballo in caballos_modificados}
