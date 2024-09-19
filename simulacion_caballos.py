@@ -15,14 +15,27 @@ caballos = {
 # Crear un diccionario para almacenar los valores modificados por el usuario
 caballos_modificados = {}
 
-# Mostrar la información de los caballos y permitir al usuario modificarla
+# Mostrar la información de los caballos en tres columnas
 st.subheader("Características de los Caballos")
-for caballo, datos in caballos.items():
-    st.write(f"**{caballo}**")
-    media = st.number_input(f"Media de {caballo}", value=datos['media'])
-    desviacion = st.number_input(f"Desviación Estándar de {caballo}", value=datos['desviacion'])
-    caballos_modificados[caballo] = {"media": media, "desviacion": desviacion}
-    st.write("")
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.write("**Relámpago Veloz**")
+    media_relampago = st.number_input("Media", value=caballos["Relámpago Veloz"]["media"])
+    desviacion_relampago = st.number_input("Desviación Estándar", value=caballos["Relámpago Veloz"]["desviacion"])
+    caballos_modificados["Relámpago Veloz"] = {"media": media_relampago, "desviacion": desviacion_relampago}
+
+with col2:
+    st.write("**Trueno Panzón**")
+    media_trueno = st.number_input("Media", value=caballos["Trueno Panzón"]["media"])
+    desviacion_trueno = st.number_input("Desviación Estándar", value=caballos["Trueno Panzón"]["desviacion"])
+    caballos_modificados["Trueno Panzón"] = {"media": media_trueno, "desviacion": desviacion_trueno}
+
+with col3:
+    st.write("**Pata Loca**")
+    media_pata = st.number_input("Media", value=caballos["Pata Loca"]["media"])
+    desviacion_pata = st.number_input("Desviación Estándar", value=caballos["Pata Loca"]["desviacion"])
+    caballos_modificados["Pata Loca"] = {"media": media_pata, "desviacion": desviacion_pata}
 
 # Función para simular una carrera
 def simular_carrera(caballos_mod):
