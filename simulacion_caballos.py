@@ -21,20 +21,20 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     st.write("**Relámpago Veloz**")
-    media_relampago = st.number_input("Media", value=caballos["Relámpago Veloz"]["media"])
-    desviacion_relampago = st.number_input("Desviación Estándar", value=caballos["Relámpago Veloz"]["desviacion"])
+    media_relampago = st.number_input("Media", value=caballos["Relámpago Veloz"]["media"], key="media_relampago")
+    desviacion_relampago = st.number_input("Desviación Estándar", value=caballos["Relámpago Veloz"]["desviacion"], key="desviacion_relampago")
     caballos_modificados["Relámpago Veloz"] = {"media": media_relampago, "desviacion": desviacion_relampago}
 
 with col2:
     st.write("**Trueno Panzón**")
-    media_trueno = st.number_input("Media", value=caballos["Trueno Panzón"]["media"])
-    desviacion_trueno = st.number_input("Desviación Estándar", value=caballos["Trueno Panzón"]["desviacion"])
+    media_trueno = st.number_input("Media", value=caballos["Trueno Panzón"]["media"], key="media_trueno")
+    desviacion_trueno = st.number_input("Desviación Estándar", value=caballos["Trueno Panzón"]["desviacion"], key="desviacion_trueno")
     caballos_modificados["Trueno Panzón"] = {"media": media_trueno, "desviacion": desviacion_trueno}
 
 with col3:
     st.write("**Pata Loca**")
-    media_pata = st.number_input("Media", value=caballos["Pata Loca"]["media"])
-    desviacion_pata = st.number_input("Desviación Estándar", value=caballos["Pata Loca"]["desviacion"])
+    media_pata = st.number_input("Media", value=caballos["Pata Loca"]["media"], key="media_pata")
+    desviacion_pata = st.number_input("Desviación Estándar", value=caballos["Pata Loca"]["desviacion"], key="desviacion_pata")
     caballos_modificados["Pata Loca"] = {"media": media_pata, "desviacion": desviacion_pata}
 
 # Función para simular una carrera
@@ -47,7 +47,7 @@ def simular_carrera(caballos_mod):
     return max(velocidades, key=velocidades.get)
 
 # Permitir al usuario ingresar la cantidad de simulaciones
-num_simulaciones = st.number_input("Ingrese la cantidad de simulaciones", min_value=1, value=100, step=1)
+num_simulaciones = st.number_input("Ingrese la cantidad de simulaciones", min_value=1, value=100, step=1, key="num_simulaciones")
 
 # Botón para ejecutar la simulación
 if st.button(f"Realizar Simulación de {num_simulaciones} Carreras"):
