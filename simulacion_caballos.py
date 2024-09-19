@@ -37,17 +37,11 @@ with col3:
     desviacion_pata = st.number_input("Desviación Estándar", value=caballos["Pata Loca"]["desviacion"], format="%.2f", step=0.01, key="desviacion_pata")
     caballos_modificados["Pata Loca"] = {"media": float(media_pata), "desviacion": float(desviacion_pata)}
 
-# Función para simular una carrera
-def simular_carrera(caballos_mod):
-    velocidades = {}
-    for caballo, datos in caballos_mod.items():
-        # Simular la velocidad con una distribución normal (media, desviación estándar)
-        velocidades[caballo] = np.random.normal(datos["media"], datos["desviacion"])
-    # Ganador es el caballo con la mayor velocidad
-    return max(velocidades, key=velocidades.get)
+# Mostrar el texto "Ingrese la cantidad de simulaciones" con el mismo tamaño de letra que el subheader
+st.markdown("<h2 style='font-size: 20px;'>Ingrese la cantidad de simulaciones</h2>", unsafe_allow_html=True)
 
 # Permitir al usuario ingresar la cantidad de simulaciones
-num_simulaciones = st.number_input("Ingrese la cantidad de simulaciones", min_value=1, value=100, step=1, key="num_simulaciones")
+num_simulaciones = st.number_input("", min_value=1, value=100, step=1, key="num_simulaciones")
 
 # Botón para ejecutar la simulación
 if st.button(f"Realizar Simulación de {num_simulaciones} Carreras"):
