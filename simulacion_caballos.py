@@ -7,7 +7,7 @@ st.title("Simulación de carreras de toloks")
 
 # Definir las características de los caballos con valores predeterminados
 caballos = {
-    "Relámpago Veloz": {"media": 5.0, "desviacion": 0.4},
+    "Relámpago Veloz": {"media": 3.0, "desviacion": 3},
     "Trueno Panzón": {"media": 4.5, "desviacion": 2.25},
     "Pata Loca": {"media": 5.10, "desviacion": 0.10}
 }
