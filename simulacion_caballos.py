@@ -12,6 +12,14 @@ caballos = {
     "Pata Loca": {"media": 5, "desviacion": 0.15}
 }
 
+# Mostrar la información de los caballos
+st.subheader("Características de los Caballos")
+for caballo, datos in caballos.items():
+    st.write(f"**{caballo}**")
+    st.write(f"  - Media de Velocidad: {datos['media']}")
+    st.write(f"  - Desviación Estándar: {datos['desviacion']}")
+    st.write("")
+
 # Función para simular una carrera
 def simular_carrera():
     velocidades = {}
@@ -26,7 +34,7 @@ num_simulaciones = st.number_input("Ingrese la cantidad de simulaciones", min_va
 
 # Botón para ejecutar la simulación
 if st.button(f"Realizar Simulación de {num_simulaciones} Carreras"):
-    ganadores = {"Relámpago Veloz": 0, "Trueno Panzón": 0, "Pata Loca": 0}
+    ganadores = {caballo: 0 for caballo in caballos}
 
     # Simular las carreras
     for _ in range(num_simulaciones):
