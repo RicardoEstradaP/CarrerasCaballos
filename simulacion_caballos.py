@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Configurar el título del dashboard
-st.title("Simulación de carreras de caballos")
+st.title("Simulación de carreras de toloks")
 
 # Definir las características de los caballos con valores predeterminados
 caballos = {
@@ -16,7 +16,7 @@ caballos = {
 caballos_modificados = {}
 
 # Mostrar la información de los caballos en tres columnas
-st.subheader("Características de los caballos")
+st.subheader("Características de los toloks")
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -64,7 +64,7 @@ if st.button(f"Realizar Simulación de {num_simulaciones} Carreras"):
     # Mostrar el gráfico de barras con los resultados
     fig, ax = plt.subplots()
     barras = ax.bar(ganadores.keys(), ganadores.values(), color=['blue', 'green', 'red'])
-    ax.set_xlabel("Caballos")
+    ax.set_xlabel("TOLOKS")
     ax.set_ylabel("Carreras Ganadas")
     ax.set_title(f"Resultados de las {num_simulaciones} Carreras Simuladas")
 
