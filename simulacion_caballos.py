@@ -7,8 +7,8 @@ st.title("Simulación de carreras de caballos")
 
 # Definir las características de los caballos con valores predeterminados
 caballos = {
-    "Relámpago Veloz": {"media": 5.0, "desviacion": 1.0},
-    "Trueno Panzón": {"media": 4.0, "desviacion": 1.25},
+    "Relámpago Veloz": {"media": 5.0, "desviacion": 3.0},
+    "Trueno Panzón": {"media": 4.5, "desviacion": 1.25},
     "Pata Loca": {"media": 5.0, "desviacion": 0.15}
 }
 
