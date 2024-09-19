@@ -21,20 +21,20 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     st.write("**Relámpago Veloz**")
-    media_relampago = st.number_input("Media", value=caballos["Relámpago Veloz"]["media"], key="media_relampago")
-    desviacion_relampago = st.number_input("Desviación Estándar", value=caballos["Relámpago Veloz"]["desviacion"], key="desviacion_relampago")
+    media_relampago = st.number_input("Media", value=caballos["Relámpago Veloz"]["media"], format="%.2f", key="media_relampago")
+    desviacion_relampago = st.number_input("Desviación Estándar", value=caballos["Relámpago Veloz"]["desviacion"], format="%.2f", key="desviacion_relampago")
     caballos_modificados["Relámpago Veloz"] = {"media": media_relampago, "desviacion": desviacion_relampago}
 
 with col2:
     st.write("**Trueno Panzón**")
-    media_trueno = st.number_input("Media", value=caballos["Trueno Panzón"]["media"], key="media_trueno")
-    desviacion_trueno = st.number_input("Desviación Estándar", value=caballos["Trueno Panzón"]["desviacion"], key="desviacion_trueno")
+    media_trueno = st.number_input("Media", value=caballos["Trueno Panzón"]["media"], format="%.2f", key="media_trueno")
+    desviacion_trueno = st.number_input("Desviación Estándar", value=caballos["Trueno Panzón"]["desviacion"], format="%.2f", key="desviacion_trueno")
     caballos_modificados["Trueno Panzón"] = {"media": media_trueno, "desviacion": desviacion_trueno}
 
 with col3:
     st.write("**Pata Loca**")
-    media_pata = st.number_input("Media", value=caballos["Pata Loca"]["media"], key="media_pata")
-    desviacion_pata = st.number_input("Desviación Estándar", value=caballos["Pata Loca"]["desviacion"], key="desviacion_pata")
+    media_pata = st.number_input("Media", value=caballos["Pata Loca"]["media"], format="%.2f", key="media_pata")
+    desviacion_pata = st.number_input("Desviación Estándar", value=caballos["Pata Loca"]["desviacion"], format="%.2f", key="desviacion_pata")
     caballos_modificados["Pata Loca"] = {"media": media_pata, "desviacion": desviacion_pata}
 
 # Función para simular una carrera
