@@ -7,9 +7,9 @@ st.title("Simulación de Carreras de Caballos")
 
 # Definir las características de los caballos con valores predeterminados
 caballos = {
-    "Relámpago Veloz": {"media": 5, "desviacion": 1},
-    "Trueno Panzón": {"media": 4, "desviacion": 1.25},
-    "Pata Loca": {"media": 5, "desviacion": 0.15}
+    "Relámpago Veloz": {"media": 5.0, "desviacion": 1.0},
+    "Trueno Panzón": {"media": 4.0, "desviacion": 1.25},
+    "Pata Loca": {"media": 5.0, "desviacion": 0.15}
 }
 
 # Crear un diccionario para almacenar los valores modificados por el usuario
@@ -21,21 +21,21 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     st.write("**Relámpago Veloz**")
-    media_relampago = st.number_input("Media", value=caballos["Relámpago Veloz"]["media"], format="%.2f", key="media_relampago")
-    desviacion_relampago = st.number_input("Desviación Estándar", value=caballos["Relámpago Veloz"]["desviacion"], format="%.2f", key="desviacion_relampago")
-    caballos_modificados["Relámpago Veloz"] = {"media": media_relampago, "desviacion": desviacion_relampago}
+    media_relampago = st.number_input("Media", value=caballos["Relámpago Veloz"]["media"], format="%.2f", step=0.01, key="media_relampago")
+    desviacion_relampago = st.number_input("Desviación Estándar", value=caballos["Relámpago Veloz"]["desviacion"], format="%.2f", step=0.01, key="desviacion_relampago")
+    caballos_modificados["Relámpago Veloz"] = {"media": float(media_relampago), "desviacion": float(desviacion_relampago)}
 
 with col2:
     st.write("**Trueno Panzón**")
-    media_trueno = st.number_input("Media", value=caballos["Trueno Panzón"]["media"], format="%.2f", key="media_trueno")
-    desviacion_trueno = st.number_input("Desviación Estándar", value=caballos["Trueno Panzón"]["desviacion"], format="%.2f", key="desviacion_trueno")
-    caballos_modificados["Trueno Panzón"] = {"media": media_trueno, "desviacion": desviacion_trueno}
+    media_trueno = st.number_input("Media", value=caballos["Trueno Panzón"]["media"], format="%.2f", step=0.01, key="media_trueno")
+    desviacion_trueno = st.number_input("Desviación Estándar", value=caballos["Trueno Panzón"]["desviacion"], format="%.2f", step=0.01, key="desviacion_trueno")
+    caballos_modificados["Trueno Panzón"] = {"media": float(media_trueno), "desviacion": float(desviacion_trueno)}
 
 with col3:
     st.write("**Pata Loca**")
-    media_pata = st.number_input("Media", value=caballos["Pata Loca"]["media"], format="%.2f", key="media_pata")
-    desviacion_pata = st.number_input("Desviación Estándar", value=caballos["Pata Loca"]["desviacion"], format="%.2f", key="desviacion_pata")
-    caballos_modificados["Pata Loca"] = {"media": media_pata, "desviacion": desviacion_pata}
+    media_pata = st.number_input("Media", value=caballos["Pata Loca"]["media"], format="%.2f", step=0.01, key="media_pata")
+    desviacion_pata = st.number_input("Desviación Estándar", value=caballos["Pata Loca"]["desviacion"], format="%.2f", step=0.01, key="desviacion_pata")
+    caballos_modificados["Pata Loca"] = {"media": float(media_pata), "desviacion": float(desviacion_pata)}
 
 # Función para simular una carrera
 def simular_carrera(caballos_mod):
