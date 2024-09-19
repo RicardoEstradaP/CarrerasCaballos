@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Configurar el título del dashboard
-st.title("Simulación de Carreras de Caballos")
+st.title("Simulación de carreras de caballos")
 
 # Definir las características de los caballos con valores predeterminados
 caballos = {
@@ -16,7 +16,7 @@ caballos = {
 caballos_modificados = {}
 
 # Mostrar la información de los caballos en tres columnas
-st.subheader("Características de los Caballos")
+st.subheader("Características de los caballos")
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -38,7 +38,7 @@ with col3:
     caballos_modificados["Pata Loca"] = {"media": float(media_pata), "desviacion": float(desviacion_pata)}
 
 # Mostrar el texto "Ingrese la cantidad de simulaciones" con el mismo tamaño de letra que el subheader
-st.markdown("<h2 style='font-size: 20px;'>Ingrese la cantidad de simulaciones</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='font-size: 30px;'>Ingrese la cantidad de simulaciones</h2>", unsafe_allow_html=True)
 
 # Permitir al usuario ingresar la cantidad de simulaciones
 num_simulaciones = st.number_input("", min_value=1, value=100, step=1, key="num_simulaciones")
