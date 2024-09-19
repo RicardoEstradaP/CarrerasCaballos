@@ -16,7 +16,7 @@ caballos = {
 caballos_modificados = {}
 
 # Mostrar la información de los caballos en tres columnas
-st.subheader("Características de los toloks")
+st.subheader("Velocidad de los toloks")
 col1, col2, col3 = st.columns(3)
 
 with col1:
