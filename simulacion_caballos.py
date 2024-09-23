@@ -8,9 +8,9 @@ st.title("Simulación de carreras de toloks")
 
 # Definir las características de los caballos con valores predeterminados
 caballos = {
-    "Relámpago Veloz": {"media": 8.0, "desviacion": 3.0},
-    "Trueno Panzón": {"media": 9.5, "desviacion": 2.25},
-    "Pata Loca": {"media": 9.10, "desviacion": 0.10}
+    "Relámpago Veloz": {"media": 10.0, "desviacion": 3.0},
+    "Trueno Panzón": {"media": 11.5, "desviacion": 2.25},
+    "Pata Loca": {"media": 11.10, "desviacion": 0.10}
 }
 
 # Crear un diccionario para almacenar los valores modificados por el usuario
