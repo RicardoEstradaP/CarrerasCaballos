@@ -10,7 +10,7 @@ st.title("Simulación de carreras de toloks")
 caballos = {
     "Relámpago Veloz": {"media": 15.0, "desviacion": 3.0},
     "Trueno Panzón": {"media": 16.5, "desviacion": 2.25},
-    "Pata Loca": {"media": 16.10, "desviacion": 0.10}
+    "Pata Loca": {"media": 16.10, "desviacion": 0.50}
 }
 
 # Crear un diccionario para almacenar los valores modificados por el usuario
