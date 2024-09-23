@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Configurar el título del dashboard
 st.title("Simulación de carreras de toloks")
@@ -78,14 +79,18 @@ if st.button(f"Realizar Simulación de {num_simulaciones} Carreras"):
 
     st.pyplot(fig)
 
-    # Mostrar gráficos de distribución de velocidades para cada tolok
+    # Gráfico de líneas de distribución de velocidades
     st.subheader("Distribución de velocidades de los toloks")
-    fig, axes = plt.subplots(3, 1, figsize=(6, 12))
 
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    colores = ['blue', 'green', 'red']
     for i, (caballo, velocidades) in enumerate(velocidades_totales.items()):
-        axes[i].hist(velocidades, bins=20, color=['blue', 'green', 'red'][i], alpha=0.7)
-        axes[i].set_title(f"Distribución de Velocidades - {caballo}")
-        axes[i].set_xlabel("Velocidad")
-        axes[i].set_ylabel("Frecuencia")
+        sns.kdeplot(velocidades, ax=ax, label=caballo, color=colores[i])
+
+    ax.set_xlabel("Velocidad")
+    ax.set_ylabel("Densidad")
+    ax.set_title("Distribución de Velocidades de los Toloks")
+    ax.legend()
 
     st.pyplot(fig)
