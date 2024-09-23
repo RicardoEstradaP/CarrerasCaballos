@@ -50,16 +50,19 @@ def simular_carrera(caballos_modificados):
         # Simular la velocidad con una distribución normal (media, desviación estándar)
         velocidades[caballo] = np.random.normal(datos["media"], datos["desviacion"])
     # Ganador es el caballo con la mayor velocidad
-    return max(velocidades, key=velocidades.get)
+    return max(velocidades, key=velocidades.get), velocidades
 
 # Botón para ejecutar la simulación
 if st.button(f"Realizar Simulación de {num_simulaciones} Carreras"):
     ganadores = {caballo: 0 for caballo in caballos_modificados}
+    velocidades_totales = {caballo: [] for caballo in caballos_modificados}
 
     # Simular las carreras
     for _ in range(num_simulaciones):
-        ganador = simular_carrera(caballos_modificados)
+        ganador, velocidades = simular_carrera(caballos_modificados)
         ganadores[ganador] += 1
+        for caballo, velocidad in velocidades.items():
+            velocidades_totales[caballo].append(velocidad)
 
     # Mostrar el gráfico de barras con los resultados
     fig, ax = plt.subplots()
@@ -72,5 +75,17 @@ if st.button(f"Realizar Simulación de {num_simulaciones} Carreras"):
     for barra in barras:
         altura = barra.get_height()
         ax.text(barra.get_x() + barra.get_width() / 2.0, altura, f'{int(altura)}', ha='center', va='bottom')
+
+    st.pyplot(fig)
+
+    # Mostrar gráficos de distribución de velocidades para cada tolok
+    st.subheader("Distribución de velocidades de los toloks")
+    fig, axes = plt.subplots(3, 1, figsize=(6, 12))
+
+    for i, (caballo, velocidades) in enumerate(velocidades_totales.items()):
+        axes[i].hist(velocidades, bins=20, color=['blue', 'green', 'red'][i], alpha=0.7)
+        axes[i].set_title(f"Distribución de Velocidades - {caballo}")
+        axes[i].set_xlabel("Velocidad")
+        axes[i].set_ylabel("Frecuencia")
 
     st.pyplot(fig)
