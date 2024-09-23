@@ -79,18 +79,18 @@ if st.button(f"Realizar Simulación de {num_simulaciones} Carreras"):
 
     st.pyplot(fig)
 
-  # Gráfico de histogramas con frecuencias de velocidades
-st.subheader("Frecuencia de velocidades de los toloks")
+    # Gráfico de histogramas con frecuencias de velocidades
+    st.subheader("Frecuencia de velocidades de los toloks")
 
-fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(10, 6))
 
-colores = ['blue', 'green', 'red']
-for i, (caballo, velocidades) in enumerate(velocidades_totales.items()):
-    ax.hist(velocidades, bins=20, alpha=0.5, label=caballo, color=colores[i])
+    colores = ['blue', 'green', 'red']
+    for i, (caballo, velocidades) in enumerate(velocidades_totales.items()):
+        ax.hist(velocidades, bins=20, alpha=0.5, label=caballo, color=colores[i])
 
-ax.set_xlabel("Velocidad")
-ax.set_ylabel("Frecuencia")
-ax.set_title("Frecuencia de Velocidades de los Toloks")
-ax.legend()
+    ax.set_xlabel("Velocidad")
+    ax.set_ylabel("Frecuencia")
+    ax.set_title("Frecuencia de Velocidades de los Toloks")
+    ax.legend()
 
-st.pyplot(fig)
+    st.pyplot(fig)
