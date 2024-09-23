@@ -38,7 +38,7 @@ with col3:
     desviacion_pata = st.number_input("Desviación Estándar", value=caballos["Pata Loca"]["desviacion"], format="%.2f", step=0.01, key="desviacion_pata")
     caballos_modificados["Pata Loca"] = {"media": float(media_pata), "desviacion": float(desviacion_pata)}
 
-# Mostrar el texto "Ingrese la cantidad de simulaciones" con el mismo tamaño de letra que el subheader
+# Mostrar el texto "Ingrese la cantidad de simulaciones"
 st.markdown("<h2 style='font-size: 30px;'>Ingrese la cantidad de simulaciones</h2>", unsafe_allow_html=True)
 
 # Permitir al usuario ingresar la cantidad de simulaciones
@@ -48,9 +48,7 @@ num_simulaciones = st.number_input("", min_value=1, value=100, step=1, key="num_
 def simular_carrera(caballos_modificados):
     velocidades = {}
     for caballo, datos in caballos_modificados.items():
-        # Simular la velocidad con una distribución normal (media, desviación estándar)
         velocidades[caballo] = np.random.normal(datos["media"], datos["desviacion"])
-    # Ganador es el caballo con la mayor velocidad
     return max(velocidades, key=velocidades.get), velocidades
 
 # Botón para ejecutar la simulación
@@ -72,7 +70,6 @@ if st.button(f"Realizar Simulación de {num_simulaciones} Carreras"):
     ax.set_ylabel("Carreras Ganadas")
     ax.set_title(f"Resultados de las {num_simulaciones} Carreras Simuladas")
 
-    # Añadir etiquetas encima de las barras con la cantidad de carreras ganadas
     for barra in barras:
         altura = barra.get_height()
         ax.text(barra.get_x() + barra.get_width() / 2.0, altura, f'{int(altura)}', ha='center', va='bottom')
@@ -92,5 +89,17 @@ if st.button(f"Realizar Simulación de {num_simulaciones} Carreras"):
     ax.set_ylabel("Frecuencia")
     ax.set_title("Frecuencia de Velocidades de los Toloks")
     ax.legend()
+
+    st.pyplot(fig)
+
+    # Gráfico de caja y bigotes
+    st.subheader("Comparación de Velocidades de los Toloks")
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+    sns.boxplot(data=list(velocidades_totales.values()), ax=ax)
+    ax.set_xticklabels(caballos_modificados.keys())
+    ax.set_xlabel("TOLOKS")
+    ax.set_ylabel("Velocidad")
+    ax.set_title("Boxplot de Velocidades de los Toloks")
 
     st.pyplot(fig)
